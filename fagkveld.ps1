@@ -45,17 +45,36 @@ $country_codes
 
 notepad .\hello_world.txt
 
+Get-Service | get-member
+
+Get-Service -DisplayName *teamcity* | ForEach-Object $_.Stop
+Get-Service -DisplayName *teamcity* | Stop-Service
+
 #functions
+function Say-Hello($text){Write-Output $text}
+Say-Hello "hello!"
 
 #running scripts
+.\say_hello.ps1
 
-#profile
-$profile
+#error handling
+.\failing_script.ps1
 
-notepad $profile
+$ErrorActionPreference = "SilentlyContinue"
+
+.\failing_script.ps1
+
+$ErrorActionPreference = "Stop" #stopper videre eksekvering, sett til denne for å få TeamCity til å feile.
+
+.\failing_script.ps1
+
+#dot sourcing
+ . .\say_hello_function.ps1
 
 #modules C:\Users\[user]\Documents\WindowsPowerShell\Modules
 get-module -listavailable
+
+$env:psmodulepath
 
 import-module webadministration
 
@@ -65,14 +84,10 @@ import-module psget
 
 get-command -module psget
 
-#error handling
-get-content does_not_exist.txt
+#profile
+$profile
 
-$ErrorActionPreference = "SilentlyContinue"
-
-get-content does_not_exist.txt
-
-$ErrorActionPreference = "Stop" #stopper videre eksekvering, sett til denne for å få TeamCity til å feile.
+notepad $profile
 
 osv.
 
