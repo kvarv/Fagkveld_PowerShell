@@ -107,4 +107,8 @@ new-item "test"  # more generic so we can use same commands for different provid
 
 get-childitem
 
+# -WhatIf
+
+get-service | stop-service -WhatIf # :|
+
 #andre ting
