@@ -91,4 +91,20 @@ notepad $profile
 
 osv.
 
+# PSDrives and generic commands
+
+new-item "test.txt" -type file  # why not new-file?
+
+New-PSDrive -name x -psprovider Registry -root HKCU:\Console\
+
+set-location x
+
+get-childitem
+
+dir
+
+new-item "test"  # more generic so we can use same commands for different providers
+
+get-childitem
+
 #andre ting
