@@ -92,23 +92,22 @@ notepad $profile
 osv.
 
 # PSDrives and generic commands
-
 new-item "test.txt" -type file  # why not new-file?
-
 New-PSDrive -name x -psprovider Registry -root HKCU:\Console\
-
 set-location x
-
 get-childitem
-
 dir
-
 new-item "test"  # more generic so we can use same commands for different providers
-
 get-childitem
 
 # -WhatIf
-
 get-service | stop-service -WhatIf # :|
+
+# Select-Object
+Get-Process | Select-Object name,id # Trim down an object
+Get-Process | Select-Object name,id | gm # Se the "trimmed down object"...
+Get-Process | Select -First 3 # using alias Select and only choosing first three in list
+Get-Process | Select @{Name="ProcessNameAndId";Expression={$_."Name" + $_."Id"}} # Trim down object and redefine fields (for example to be able to pass it to another CmdLet which accepts parameter by name)
+
 
 #andre ting
