@@ -89,6 +89,8 @@ $profile
 
 test-path $profile
 
+$profile | get-member -MemberType noteproperty
+
 notepad $profile
 
 osv.
