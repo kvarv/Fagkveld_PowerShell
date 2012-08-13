@@ -87,9 +87,12 @@ get-command -module psget
 #profile
 $profile
 
+test-path $profile
+
 notepad $profile
 
 osv.
+new-item -path $profile -itemtype file -force
 
 # PSDrives and generic commands
 new-item "test.txt" -type file  # why not new-file?
