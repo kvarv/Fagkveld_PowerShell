@@ -133,5 +133,24 @@ Get-WmiObject Win32_OperatingSystem | Format-Table -AutoSize
 
 Get-Service | FL
 
+# Comparison
+
+5 -eq 5
+
+"hello" -eq "help"
+
+"Hello" -eq "hello" # Case insensitive
+
+"Hello" -ceq "hello" # Case sensitive
+
+"Hello" -like "*ll*" # -clike
+
+(5 -gt 10) -and (10 -lt 100)
+# etc... Don't ask!
+
+# Filtering
+Get-Service | Where-Object -Filter { $_.Status -eq 'Running' }
+
+gsv | Where { $_.Status -eq 'Running' }
 
 #andre ting
