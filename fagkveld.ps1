@@ -114,7 +114,7 @@ Get-Process | Select-Object name,id | gm # Se the "trimmed down object"...
 Get-Process | Select -First 3 # using alias Select and only choosing first three in list
 Get-Process | Select @{Name="ProcessNameAndId";Expression={$_."Name" + $_."Id"}} # Trim down object and redefine fields (for example to be able to pass it to another CmdLet which accepts parameter by name)
 
-# Output and Formatting
+# Output and Formatting (Format right - do as the last command because it is only Out-xxx commands which handle formatting)
 Get-Process  # Really Get-Process | Out-Default -> Get-Process | Out-Host
 
 cd $pshome
@@ -148,7 +148,7 @@ Get-Service | FL
 (5 -gt 10) -and (10 -lt 100)
 # etc... Don't ask!
 
-# Filtering
+# Filtering - Filter Left (As soon as possible to make cmdlets futher down the chain to do less work)
 Get-Service | Where-Object -Filter { $_.Status -eq 'Running' }
 
 gsv | Where { $_.Status -eq 'Running' }
