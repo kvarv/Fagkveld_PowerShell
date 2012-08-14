@@ -114,5 +114,24 @@ Get-Process | Select-Object name,id | gm # Se the "trimmed down object"...
 Get-Process | Select -First 3 # using alias Select and only choosing first three in list
 Get-Process | Select @{Name="ProcessNameAndId";Expression={$_."Name" + $_."Id"}} # Trim down object and redefine fields (for example to be able to pass it to another CmdLet which accepts parameter by name)
 
+# Output and Formatting
+Get-Process  # Really Get-Process | Out-Default -> Get-Process | Out-Host
+
+cd $pshome
+
+Get-WmiObject Win32_OperatingSystem | GM # See all the members
+
+notepad dotnettypes.format.ps1xml # Rule 1: Search for Process. NOTE! Digitally signed
+
+Get-WmiObject Win32_OperatingSystem  # search for Win32_OperatingSystem in dotnettypes.
+
+notepad types.ps1xml # Rule 2: Search for Win32_OperatingSystem. NOTE! Digitally signed
+
+Get-WmiObject Win32_NTEventlogFile # Rule 3: Table for 4 objects or less (unless View) List otherwise
+
+Get-WmiObject Win32_OperatingSystem | Format-Table -AutoSize
+
+Get-Service | FL
+
 
 #andre ting
