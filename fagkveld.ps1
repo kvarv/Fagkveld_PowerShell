@@ -159,5 +159,7 @@ Enable-PSRemoting # Remoting must be enabled on computers that receive incoming 
 Enter-PSSession -ComputerName localhost # 1 to 1 remoting
 Get-Process | Select -First 3 # Run any command on "remote computer"
 Exit-PSSession
-
+                          
+# 1 to n remoting						  
+Invoke-Command -ComputerName localhost,server1,server2 -Command { Get-Process iexplore | Stop-Process }
 #andre ting
