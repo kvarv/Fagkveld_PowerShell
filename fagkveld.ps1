@@ -153,4 +153,11 @@ Get-Service | Where-Object -Filter { $_.Status -eq 'Running' }
 
 gsv | Where { $_.Status -eq 'Running' }
 
+# Remoting
+Enable-PSRemoting # Remoting must be enabled on computers that receive incoming commands
+
+Enter-PSSession -ComputerName localhost # 1 to 1 remoting
+Get-Process | Select -First 3 # Run any command on "remote computer"
+Exit-PSSession
+
 #andre ting
