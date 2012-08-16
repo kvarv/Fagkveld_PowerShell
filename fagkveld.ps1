@@ -47,6 +47,9 @@ Say-Hello "hello!"
 #running scripts
 .\say_hello.ps1
 
+#dot sourcing
+ . .\say_hello_function.ps1
+
 #error handling
 .\failing_script.ps1
 
@@ -57,9 +60,6 @@ $ErrorActionPreference = "SilentlyContinue"
 $ErrorActionPreference = "Stop" #stopper videre eksekvering, sett til denne for å få TeamCity til å feile.
 
 .\failing_script.ps1
-
-#dot sourcing
- . .\say_hello_function.ps1
 
 #pipes
 "hello world" | set-content hello_world.txt
