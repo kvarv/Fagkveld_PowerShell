@@ -40,16 +40,6 @@ $country_codes = @{norway = "no"; sweden = "se"}
 
 $country_codes
 
-#pipes
-"hello world" | set-content hello_world.txt
-
-notepad .\hello_world.txt
-
-Get-Service | get-member
-
-Get-Service -DisplayName *teamcity* | ForEach-Object $_.Stop
-Get-Service -DisplayName *teamcity* | Stop-Service
-
 #functions
 function Say-Hello($text){Write-Output $text}
 Say-Hello "hello!"
@@ -70,6 +60,16 @@ $ErrorActionPreference = "Stop" #stopper videre eksekvering, sett til denne for 
 
 #dot sourcing
  . .\say_hello_function.ps1
+
+#pipes
+"hello world" | set-content hello_world.txt
+
+notepad .\hello_world.txt
+
+Get-Service | get-member
+
+Get-Service -DisplayName *teamcity* | ForEach-Object $_.Stop
+Get-Service -DisplayName *teamcity* | Stop-Service
 
 #modules C:\Users\[user]\Documents\WindowsPowerShell\Modules
 get-module -listavailable
